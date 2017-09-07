@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <c:set var="page" value="client"/>
     <%@include file="header.jsp" %>
 	<div class="generic-container">
 		<div class="panel panel-default">

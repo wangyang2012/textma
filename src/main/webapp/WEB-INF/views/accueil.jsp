@@ -8,14 +8,18 @@
 	<title>Users List</title>
 	<link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
 	<link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
-	<link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
+	<link href="<c:url value='/static/css/accueil.css' />" rel="stylesheet"></link>
 </head>
 
 <body>
+    <c:set var="page" value="accueil"/>
     <%@include file="header.jsp" %>
-    <a href="client/list"><span>Client</span></a>
-    <a href=""><span>Article</span></a>
-    <a href=""><span>Commande</span></a>
-    <a href="delivery/calendar"><span>Livraison</span></a>
+    <div class="row">
+        <a class="col-md-2" href="user/list"><img class="icon" src="<c:url value='/static/images/icons/user.png' />" title="Utilisateurs"></a>
+        <a class="col-md-2" href="client/list"><img class="icon" src="<c:url value='/static/images/icons/client.png' />" title="Clients"></a>
+        <a class="col-md-2" href=""><img class="icon" src="<c:url value='/static/images/icons/product.png' />" title="Articles"></a>
+        <a class="col-md-2" href=""><img class="icon" src="<c:url value='/static/images/icons/command.png' />" title="Commandes"></a>
+        <a class="col-md-2" href="delivery/calendar"><img class="icon" src="<c:url value='/static/images/icons/calendar.png' />" title="Livraison"></a>
+    </div>
 </body>
 </html>

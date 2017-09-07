@@ -10,6 +10,8 @@
 </head>
 
 <body>
+    <c:set var="page" value="user"/>
+    <%@include file="header.jsp" %>
 	<div class="generic-container">
 		<div class="panel panel-default">
 			  <!-- Default panel contents -->
@@ -32,8 +34,8 @@
 						<td>${user.lastName}</td>
 						<td>${user.email}</td>
 						<td>${user.ssoId}</td>
-						<td><a href="<c:url value='/edit-user-${user.ssoId}' />" class="btn btn-success custom-width">edit</a></td>
-						<td><a href="<c:url value='/delete-user-${user.ssoId}' />" class="btn btn-danger custom-width">delete</a></td>
+						<td><a href="<c:url value='/user/edit-user?ssoId=${user.ssoId}' />" class="btn btn-success custom-width">edit</a></td>
+						<td><a href="<c:url value='/user/delete-user-${user.ssoId}' />" class="btn btn-danger custom-width">delete</a></td>
 					</tr>
 				</c:forEach>
 	    		</tbody>

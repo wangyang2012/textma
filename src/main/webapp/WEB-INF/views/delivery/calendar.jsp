@@ -7,6 +7,7 @@
 	<title>Agenda</title>
 	<link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
 	<link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
+	<link href="<c:url value='/static/css/calendar.css' />" rel="stylesheet"></link>
 
 
 	<link href="<c:url value='/static/js/fullcalendar-3.4.0/fullcalendar.min.css'/>" rel='stylesheet' />
@@ -144,6 +145,7 @@
 </head>
 
 <body>
+    <c:set var="page" value="delivery"/>
     <%@include file="../header.jsp" %>
 	<div class="generic-container">
 

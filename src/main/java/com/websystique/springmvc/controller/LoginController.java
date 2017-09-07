@@ -11,10 +11,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @RequestMapping("/")
 @SessionAttributes("roles")
 public class LoginController {
-//
-//	@Autowired
-//	UserService userService;
-	
+
 	/**
 	 * This method will list all existing users.
 	 */
@@ -25,5 +22,11 @@ public class LoginController {
 		}
 		model.addAttribute("msgError", "Login ou mot de passe erroné!");
 		return "login";
+	}
+
+
+	@RequestMapping(value = { "/accueil" }, method = RequestMethod.GET)
+	public String accueil() {
+		return "accueil";
 	}
 }

@@ -10,13 +10,14 @@
 	<link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
 </head>
 <body>
+<%@include file="header.jsp" %>
 <div class="generic-container">
 	<div class="alert alert-success lead">
     	${success}
 	</div>
 	
 	<span class="well floatRight">
-		Go to <a href="<c:url value='/list' />">Users List</a>
+		Go to <a href="<c:url value='/user/list' />">Users List</a>
 	</span>
 </div>
 </body>

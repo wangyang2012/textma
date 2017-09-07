@@ -102,8 +102,8 @@ public class UserController {
 	/**
 	 * This method will provide the medium to update an existing user.
 	 */
-	@RequestMapping(value = { "/edit-user-{ssoId}" }, method = RequestMethod.GET)
-	public String editUser(@PathVariable String ssoId, ModelMap model) {
+	@RequestMapping(value = { "/edit-user" }, method = RequestMethod.GET)
+	public String editUser(@RequestParam("ssoId") String ssoId, ModelMap model) {
 		User user = userService.findBySSO(ssoId);
 		model.addAttribute("user", user);
 		model.addAttribute("edit", true);
@@ -114,9 +114,8 @@ public class UserController {
 	 * This method will be called on form submission, handling POST request for
 	 * updating user in database. It also validates the user input
 	 */
-	@RequestMapping(value = { "/edit-user-{ssoId}" }, method = RequestMethod.POST)
-	public String updateUser(@Valid User user, BindingResult result,
-			ModelMap model, @PathVariable String ssoId) {
+	@RequestMapping(value = { "/edit-user" }, method = RequestMethod.POST)
+	public String updateUser(@Valid User user, BindingResult result, ModelMap model) {
 
 		if (result.hasErrors()) {
 			return "registration";
@@ -140,10 +139,10 @@ public class UserController {
 	/**
 	 * This method will delete an user by it's SSOID value.
 	 */
-	@RequestMapping(value = { "/delete-user-{ssoId}" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/delete-user" }, method = RequestMethod.GET)
 	public String deleteUser(@PathVariable String ssoId) {
 		userService.deleteUserBySSO(ssoId);
-		return "redirect:/list";
+		return "redirect:/user/list";
 	}
 	
 
