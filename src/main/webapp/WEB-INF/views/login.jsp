@@ -21,6 +21,7 @@
 </head>
 
 <body>
+    <c:set var="page" value="login"/>
     <%@include file="header.jsp" %>
 
     <c:if test="${msgError != null && msgError != ''}">

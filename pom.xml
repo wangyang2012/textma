@@ -96,12 +96,12 @@
 					<version>2.4</version>
 					<configuration>
 						<warSourceDirectory>src/main/webapp</warSourceDirectory>
-						<warName>SpringMVCHibernateManyToManyCRUDExample</warName>
+						<warName>textma</warName>
 						<failOnMissingWebXml>false</failOnMissingWebXml>
 					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>
-		<finalName>SpringMVCHibernateManyToManyCRUDExample</finalName>
+		<finalName>textma</finalName>
 	</build>
 </project>

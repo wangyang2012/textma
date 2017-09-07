@@ -7,6 +7,14 @@
 	<title>Users List</title>
 	<link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
 	<link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
+	<script type="text/javascript" src="<c:url value='/static/js/jquery.js' />"></script>
+	<script type="text/javascript" src="<c:url value='/static/js/jquery.dataTables.min.js' />"></script>
+	<link href="<c:url value='/static/css/jquery.dataTables.min.css' />" rel="stylesheet"></link>
+	<script>
+        $(document).ready(function() {
+            $('#clientTable').DataTable();
+        } );
+	</script>
 </head>
 
 <body>
@@ -16,7 +24,7 @@
 		<div class="panel panel-default">
 			  <!-- Default panel contents -->
 		  	<div class="panel-heading"><span class="lead">Liste des clients</span></div>
-			<table class="table table-hover">
+			<table id="clientTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
 	    		<thead>
 		      		<tr>
 				        <th>ID</th>
