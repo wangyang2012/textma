@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Agenda</title>
 	<link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
 	<link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
@@ -147,16 +147,59 @@
 <body>
     <c:set var="page" value="delivery"/>
     <%@include file="../header.jsp" %>
-	<div class="generic-container">
-
-	 		<div id='script-warning'>
-            		<code>php/get-events.php</code> must be running.
-            	</div>
-
-            	<div id='loading'>loading...</div>
-
-            	<div id='calendar'></div>
-   	</div>
+    <div class="generic-container row">
+        <div id='calendar' class="col-md-8"></div>
+        <div class='col-md-4'>
+            <h4>Livraisons d'aujourd'hui</h4>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            Heure
+                        </th>
+                        <th>
+                            Client
+                        </th>
+                        <th>
+                            Etat
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-success">
+                        <td>09:38</td>
+                        <td>Resto Michelin 3 étoiles</td>
+                        <td>Livré</td>
+                    </tr>
+                    <tr class="table-success">
+                        <td>10:00</td>
+                        <td>Pizzaria du coin</td>
+                        <td>Livré</td>
+                    </tr>
+                    <tr class="table-danger">
+                        <td>10:45</td>
+                        <td>Hotel AA</td>
+                        <td>En cours</td>
+                    </tr>
+                    <tr class="table-info">
+                        <td>14:30</td>
+                        <td>Salle de fête Vincenne</td>
+                        <td>En attente</td>
+                    </tr>
+                    <tr class="table-info">
+                        <td>15:00</td>
+                        <td>Château du Fontainebleau</td>
+                        <td>En attente</td>
+                    </tr>
+                    <tr class="table-info">
+                        <td>19:50</td>
+                        <td>Charles de Gaule</td>
+                        <td>A confirmer</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 <!--
    	<h2>Google Calendar </h2>
 
