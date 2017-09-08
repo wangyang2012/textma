@@ -14,6 +14,7 @@
     <link href="<c:url value='/static/js/fullcalendar-3.4.0/fullcalendar.print.min.css'/>" rel='stylesheet' media='print' />
     <script src="<c:url value='/static/js/fullcalendar-3.4.0/lib/moment.min.js'/>"></script>
     <script src="<c:url value='/static/js/fullcalendar-3.4.0/lib/jquery.min.js'/>"></script>
+    <script src="<c:url value='/static/js/bootstrap.js'/>"></script>
     <script src="<c:url value='/static/js/fullcalendar-3.4.0/fullcalendar.min.js'/>"></script>
     <script type='text/javascript' src="<c:url value='/static/js/fullcalendar-3.4.0/gcal.js'/>"></script>
     <script>
@@ -198,7 +199,51 @@
                     </tr>
                 </tbody>
             </table>
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#deliveryModal">Nouvelle livraison</button>
         </div>
+    </div>
+
+
+    <!-- Modal -->
+      <div class="modal fade" id="deliveryModal" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Nouvelle livraison</h4>
+              <button type="button" class="close pull-right" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+
+              <div class="container">
+                  <div class="row">
+                      <div class='col-sm-6'>
+                          <div class="form-group">
+                              <div class='input-group date' id='datetimepicker1'>
+                                  <input type='text' class="form-control" />
+                                  <span class="input-group-addon">
+                                      <span class="glyphicon glyphicon-calendar"></span>
+                                  </span>
+                              </div>
+                          </div>
+                      </div>
+                      <script type="text/javascript">
+                          $(function () {
+                              $('#datetimepicker1').datetimepicker();
+                          });
+                      </script>
+                  </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
 <!--
    	<h2>Google Calendar </h2>

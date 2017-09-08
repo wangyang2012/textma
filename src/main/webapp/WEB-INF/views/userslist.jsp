@@ -16,7 +16,7 @@
 		<div class="panel panel-default">
 			  <!-- Default panel contents -->
 		  	<div class="panel-heading"><span class="lead">List of Users </span></div>
-			<table class="table table-hover">
+			<table id="userList" class="table table-hover">
 	    		<thead>
 		      		<tr>
 				        <th>Firstname</th>
