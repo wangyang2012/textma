@@ -1,7 +1,7 @@
 package com.websystique.springmvc.service;
 
-import com.websystique.springmvc.dao.ClientDao;
-import com.websystique.springmvc.model.Client;
+import com.websystique.springmvc.dao.TeClientDao;
+import com.websystique.springmvc.model.TeClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,27 +9,20 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 
-@Service("clientService")
+@Service("teClientService")
 @Transactional
-public class ClientServiceImpl implements ClientService{
+public class TeClientServiceImpl implements TeClientService{
 
 	@Autowired
-	private ClientDao dao;
+	private TeClientDao dao;
 
 
-	public Client findById(int id) {
+	public TeClient findById(int id) {
 		return dao.findById(id);
 	}
 
-	public Client findByName(String name) {
+	public List<TeClient> findByName(String name) {
 		return dao.findByName(name);
 	}
 
-	public void save(Client client) {
-		dao.save(client);
-	}
-
-	public List<Client> findAllClients() {
-		return dao.findAllClients();
-	}
 }

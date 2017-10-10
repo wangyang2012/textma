@@ -32,6 +32,6 @@ public class ClientController {
 
 		List<Client> clients = clientService.findAllClients();
 		model.addAttribute("clients", clients);
-		return "clientList";
+		return "teClientList";
 	}
 }

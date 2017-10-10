@@ -4,19 +4,19 @@ import com.websystique.springmvc.model.TeClient;
 import com.websystique.springmvc.service.TeClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.List;
 
 
-@Controller
-@RequestMapping("/teClient")
-@SessionAttributes("roles")
-public class TeClientController {
+@RestController
+@RequestMapping("/teClientRest")
+public class TeClientRestController {
 
 	@Autowired
 	TeClientService teClientService;
@@ -27,11 +27,15 @@ public class TeClientController {
 	/**
 	 * This method will list all existing users.
 	 */
-	@RequestMapping(value = { "/list" }, method = RequestMethod.GET)
-	public String listTeClients(ModelMap model) {
-
+	@RequestMapping(method = RequestMethod.GET, produces = "application/json",headers="Accept=application/json")
+	@ResponseBody
+	public void listTeClients(HttpServletResponse res) {
 		List<TeClient> clients = teClientService.findByName("");
-		model.addAttribute("clients", clients);
-		return "teClientList";
+		try {
+			res.getWriter().println(clients);
+			res.getWriter().close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

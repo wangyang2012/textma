@@ -1,51 +1,28 @@
 package com.websystique.springmvc.dao;
 
-import com.websystique.springmvc.model.Client;
+import com.websystique.springmvc.model.TeClient;
 import org.hibernate.Criteria;
-import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 
 
-@Repository("clientDao")
-public class ClientDaoImpl extends AbstractDao<Integer, Client> implements ClientDao {
+@Repository("teClientDao")
+public class TeClientDaoImpl extends AbstractDao<Integer, TeClient> implements TeClientDao {
 
-	public Client findById(int id) {
-		Client client = getByKey(id);
-//		if(user!=null){
-//			Hibernate.initialize(user.getClientGroup());
-//		}
+	public TeClient findById(int id) {
+		TeClient client = getByKey(id);
 		return client;
 	}
 
-	public Client findByName(String name) {
+	public List<TeClient> findByName(String name) {
 		Criteria crit = createEntityCriteria();
-		crit.add(Restrictions.eq("name", name));
-		Client client = (Client)crit.uniqueResult();
-//		if(client!=null){
-//			Hibernate.initialize(client.getClientGroup());
-//		}
-		return client;
-	}
-
-	@SuppressWarnings("unchecked")
-	public List<Client> findAllClients() {
-		Criteria criteria = createEntityCriteria().addOrder(Order.asc("name"));
-		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);//To avoid duplicates.
-		List<Client> clients = (List<Client>) criteria.list();
-		
-		// No need to fetch userProfiles since we are not showing them on list page. Let them lazy load. 
-		// Uncomment below lines for eagerly fetching of userProfiles if you want.
-		/*
-		for(User user : users){
-			Hibernate.initialize(user.getUserProfiles());
-		}*/
+		if (!StringUtils.isEmpty(name)) {
+			crit.add(Restrictions.eq("name", name));
+		}
+		List<TeClient> clients = crit.list();
 		return clients;
-	}
-
-	public void save(Client client) {
-		persist(client);
 	}
 }

@@ -25,6 +25,10 @@ body {
   box-shadow: 0 0 30px black;
 }
 
+ul.nav {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 
 .header img {
     float: left;

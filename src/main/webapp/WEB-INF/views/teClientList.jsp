@@ -9,7 +9,11 @@
 	<link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
 	<script type="text/javascript" src="<c:url value='/static/js/jquery.js' />"></script>
 	<script type="text/javascript" src="<c:url value='/static/js/jquery.dataTables.min.js' />"></script>
+    <script type="text/javascript" src="<c:url value='/static/js/webix.js' />"></script>
 	<link href="<c:url value='/static/css/jquery.dataTables.min.css' />" rel="stylesheet"></link>
+	<link rel="stylesheet" href="<c:url value='/static/css/webix.css'/>" type="text/css" charset="utf-8">
+
+
 	<script>
         $(document).ready(function() {
             $('#clientTable').DataTable();
@@ -24,15 +28,50 @@
 		<div class="panel panel-default">
 			  <!-- Default panel contents -->
 		  	<div class="panel-heading"><span class="lead">Liste des clients</span></div>
+
+		  	<div class='header_comment'>Dynamic paging. Loading from DB (sqllite + php)</div>
+            		<div id="testA"></div>
+            		<div id="paging_here"></div>
+
+            		<script type="text/javascript" charset="utf-8">
+
+            		webix.ready(function(){
+            			grida = webix.ui({
+            				container:"testA",
+            				view:"datatable",
+            				columns:[
+            					{ id:"package",	header:"Name", 			width:200 },
+            					{ id:"section",	header:"Section",		width:120 },
+            					{ id:"size",	header:"Size" , 		width:80  },
+            					{ id:"architecture",	header:"PC", 	width:60  }
+            				],
+            				select:"row",
+            				navigation:true,
+            				autowidth:true, autoheight:true,
+
+            				datafetch:40,
+            				loadahead:15,
+            				pager:{
+            					container:"paging_here",
+            					size:10,
+            					group:5
+            				},
+            				url:"http://localhost:8080/textma/teClientRest"
+            			});
+            		});
+            		</script>
+
+            <hr/>
+            <h1>TABLE</h1>
 			<table id="clientTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
 	    		<thead>
 		      		<tr>
 				        <th>ID</th>
 				        <th>Nom</th>
-				        <th>Email</th>
+				        <th>Siret</th>
 				        <th>Adresse</th>
-				        <th>Groupe</th>
-				        <th width="100"></th>
+				        <th>Code postal</th>
+				        <th>Ville</th>
 				        <th width="100"></th>
 					</tr>
 		    	</thead>
@@ -41,11 +80,11 @@
 					<tr>
 						<td>${client.id}</td>
 						<td>${client.name}</td>
-						<td>${client.email}</td>
+						<td>${client.siret}</td>
 						<td>${client.address}</td>
-						<td>${client.group.name}</td>
-						<td><a href="<c:url value='/edit-user-${user.ssoId}' />" class="btn btn-success custom-width">edit</a></td>
-						<td><a href="<c:url value='/delete-user-${user.ssoId}' />" class="btn btn-danger custom-width">delete</a></td>
+						<td>${client.codePostal}</td>
+						<td>${client.ville}</td>
+						<td><a href="<c:url value='/delete-user-${user.ssoId}' />" class="btn btn-danger custom-width">factures</a></td>
 					</tr>
 				</c:forEach>
 	    		</tbody>

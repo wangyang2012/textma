@@ -1,19 +1,15 @@
 package com.websystique.springmvc.service;
 
-import com.websystique.springmvc.model.Client;
+import com.websystique.springmvc.model.TeClient;
 
 import java.util.List;
 
 
-public interface ClientService {
+public interface TeClientService {
 
 
-	Client findById(int id);
+	TeClient findById(int id);
 
-	Client findByName(String name);
-
-	void save(Client client);
-
-	List<Client> findAllClients();
+	List<TeClient> findByName(String name);
 
 }

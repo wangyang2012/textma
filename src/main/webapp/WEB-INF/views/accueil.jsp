@@ -5,7 +5,7 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Users List</title>
+	<title>Accueil</title>
 	<link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
 	<link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
 	<link href="<c:url value='/static/css/accueil.css' />" rel="stylesheet"></link>
@@ -20,6 +20,8 @@
         <a class="col-md-2" href=""><img class="icon" src="<c:url value='/static/images/icons/product.png' />" title="Articles"></a>
         <a class="col-md-2" href=""><img class="icon" src="<c:url value='/static/images/icons/command.png' />" title="Commandes"></a>
         <a class="col-md-2" href="delivery/calendar"><img class="icon" src="<c:url value='/static/images/icons/calendar.png' />" title="Livraison"></a>
+        <a class="col-md-2" href="teClient/list"><img class="icon" src="<c:url value='/static/images/icons/client2.png' />" title="CLIENTS"></a>
+        <a class="col-md-2" href="teFacture/list"><img class="icon" src="<c:url value='/static/images/icons/delivery.png' />" title="FACTURES"></a>
     </div>
 </body>
 </html>
